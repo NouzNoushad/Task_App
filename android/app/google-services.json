@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "185977760947",
+    "firebase_url": "https://text-feea7-default-rtdb.firebaseio.com",
+    "project_id": "text-feea7",
+    "storage_bucket": "text-feea7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185977760947:android:8009db9764d713339c94c6",
+        "android_client_info": {
+          "package_name": "com.example.todo_rishal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185977760947-fki7dfdcnce80nlr6k8pgicb3nn4g0ie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ9La-duxAyPbPFgaDyHHkcRebauHD6S8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185977760947-fki7dfdcnce80nlr6k8pgicb3nn4g0ie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

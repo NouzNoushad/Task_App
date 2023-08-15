@@ -3,16 +3,41 @@ import 'package:flutter/foundation.dart';
 import 'package:todo_rishal/models/add_task_model.dart';
 import 'package:todo_rishal/services/add_task_service.dart';
 
+import '../core/constants.dart';
+
 class TaskHomeProvider extends ChangeNotifier {
   AddTaskService addTaskService = AddTaskService();
   int selectedIndex = 0;
   bool switchState = false;
+  List taskList = [];
 
   String changeTaskState(String taskState) {
-    if (taskState == 'upcoming') return 'past';
-    if (taskState == 'past') return 'expired';
-    if (taskState == 'expired') return '';
+    switchState = false;
+    if (taskState == 'upcoming') return 'renewed';
+    if (taskState == 'renewed') return 'upcoming';
     return '';
+  }
+
+  checkTaskConditions(
+    List<QueryDocumentSnapshot<Map<String, dynamic>>> snapshots,
+    TaskState taskState,
+  ) {
+    if (taskState == TaskState.upcoming) {
+      taskList = snapshots.where((element) {
+        DateTime startDate = element['expired_date'].toDate();
+        return startDate.isAfter(DateTime.now());
+      }).toList();
+      print('///////////////// upcoming tasks: ${taskList.length}');
+    } else if (taskState == TaskState.renewed) {
+      taskList = snapshots;
+      print('///////////////// renewed tasks: ${taskList.length}');
+    } else if (taskState == TaskState.expired) {
+      taskList = snapshots.where((element) {
+        DateTime expiredDate = element['expired_date'].toDate();
+        return expiredDate.isBefore(DateTime.now());
+      }).toList();
+      print('///////////////// expired tasks: ${taskList.length}');
+    }
   }
 
   onChangedSwitchState(int index, bool value,

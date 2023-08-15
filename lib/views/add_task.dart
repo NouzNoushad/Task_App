@@ -50,15 +50,15 @@ class _AddTaskState extends State<AddTask> {
             ),
             Row(
               children: [
-                taskDate('Start Date', (value) {
-                  if (value == null) {
-                    return;
-                  }
-                  addTaskProvider.selectStartDate(value);
-                }, DateFormat.yMMMd().format(addTaskProvider.startInitialDate)),
-                const SizedBox(
-                  width: 5,
-                ),
+                // taskDate('Start Date', (value) {
+                //   if (value == null) {
+                //     return;
+                //   }
+                //   addTaskProvider.selectStartDate(value);
+                // }, DateFormat.yMMMd().format(addTaskProvider.startInitialDate)),
+                // const SizedBox(
+                //   width: 5,
+                // ),
                 taskDate('Expired Date', (value) {
                   if (value == null) {
                     return;

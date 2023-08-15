@@ -34,7 +34,7 @@ class AddTaskProvider extends ChangeNotifier {
   String checkTaskState(TaskState state) {
     String taskState = switch (state) {
       TaskState.upcoming => "upcoming",
-      TaskState.past => "past",
+      TaskState.renewed => "renewed",
       TaskState.expired => "expired"
     };
     return taskState;
